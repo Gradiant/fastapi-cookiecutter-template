@@ -22,11 +22,9 @@ This repository serves as a Cookiecutter template to create a new FastAPI projec
 
 ## Running tests
 
-(TODO: maybe should be better to just use the tests within the template, and a script creates a new template and runs these tests)
+The template includes a package [tests]({{cookiecutter.directory_name}}/tests), where tests for the application can be placed. Includes a sample test on the /status endpoint, using [FastAPI TestClient](https://fastapi.tiangolo.com/tutorial/testing/).
 
-The tests included in [tests](tests) will verify that the template is created and runs correctly.
-
-Within the template itself [other set of tests]({{cookiecutter.directory_name}}/tests) is bundled, which can be used to test the application.
+The template tests can run without creating a template, by executing the [tools/test_template.sh](tools/test_template.sh) script.
 
 ## TODO
 
