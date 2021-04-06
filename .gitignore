@@ -1,0 +1,6 @@
+.vscode/
+.idea/
+.pytest_cache/
+__pycache__/
+fastapi-example/
+.env
