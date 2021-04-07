@@ -1,5 +1,6 @@
 {
   "app_name": "FastAPI Example",
   "directory_name": "{{ cookiecutter.app_name|lower|replace(' ', '-') }}",
-  "project_slug": "{{ cookiecutter.directory_name|replace('-', '_') }}"
+  "project_slug": "{{ cookiecutter.directory_name|replace('-', '_') }}",
+  "advanced_docs": [false, true]
 }

@@ -3,8 +3,9 @@
 This repository serves as a Cookiecutter template to create a new FastAPI project, featuring:
 
 - Log records identified per request, using [loguru](https://github.com/Delgan/loguru)
-- Settings management using [Pydantic BaseSettings](https://pydantic-docs.helpmanual.io/usage/settings/), through .env file or environment variables
+- Settings management using [Pydantic BaseSettings](https://pydantic-docs.helpmanual.io/usage/settings/), through .env file or environment variables, organized by classes
 - Custom API exceptions and middleware that transforms API exceptions into FastAPI responses
+- Customization of generated documentation (self-hosting JS/CSS and changing ReDoc logo)
 
 ## Getting started
 
@@ -17,6 +18,7 @@ This repository serves as a Cookiecutter template to create a new FastAPI projec
     - app_name: canonical name of the project (example: "FastAPI example")
     - directory_name: name of the directory where the template will be created (example: "fastapi-example"; the directory will be created within the current directory)
     - project_slug: name of the Python package that will hold the application (example: "fastapi_example")
+    - advanced_docs: if true, adds more options to customize the generation of documentation
 
 - chdir to where the template was created (inside "directory_name") and start the server with `python .`
 
