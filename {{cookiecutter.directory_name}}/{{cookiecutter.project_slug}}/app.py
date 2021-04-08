@@ -3,15 +3,19 @@ from fastapi import FastAPI
 
 from .middlewares import request_handler
 from .routers import setup_routes
-{%- if cookiecutter.advanced_docs == true %}
+{%- if cookiecutter.advanced_docs == "no" %}
 from .routers import TAGS_METADATA
+{% else %}
 from .documentation import setup_documentation
-{% endif %}
+{% endif -%}
 from .settings import api_settings, api_docs_settings
 
-{% if cookiecutter.advanced_docs == true %}
-app = FastAPI()
-{% else %}
+{% if cookiecutter.advanced_docs == "yes" -%}
+app = FastAPI(
+    docs_url="/docs" if not api_docs_settings.static_path else None,
+    redoc_url="/redoc" if not api_docs_settings.static_path else None
+)
+{% else -%}
 app = FastAPI(
     title=api_docs_settings.title,
     version=api_docs_settings.version,
@@ -20,9 +24,9 @@ app = FastAPI(
 {% endif -%}
 app.middleware("http")(request_handler)
 setup_routes(app)
-{%- if cookiecutter.advanced_docs == true %}
+{%- if cookiecutter.advanced_docs == "yes" %}
 setup_documentation(app)
-{% endif %}
+{%- endif %}
 
 
 def run():

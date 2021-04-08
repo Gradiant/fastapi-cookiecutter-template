@@ -1,5 +1,5 @@
 import os
-{%- if cookiecutter.advanced_docs == true %}
+{%- if cookiecutter.advanced_docs|tojson %}
 from typing import Optional
 {% endif %}
 
@@ -30,12 +30,23 @@ class APISettings(BaseSettings):
 class APIDocsSettings(BaseSettings):
     title: str = "{{ cookiecutter.app_name }}"
     """Title of the API"""
+    description: Optional[str] = None
+    """Description of the API"""
     version: str = "version"
     """Version of the API"""
-    {%- if cookiecutter.advanced_docs == true %}
+    {%- if cookiecutter.advanced_docs == "yes" %}
     custom_logo: Optional[str] = None
-    """URL of a custom logo to show in ReDoc"""
-    {% endif %}
+    """URL of a custom logo to show in ReDoc (if not set, no logo will be shown)"""
+    static_path: Optional[str] = None
+    """Path where to load static files from, used for the generated documentation.
+    If set, both OpenAPI/Swagger and ReDoc will load required files from there, instead of the default CDN.
+    More information available in FastAPI documentation:
+    https://fastapi.tiangolo.com/advanced/extending-openapi/#download-the-files
+
+    - Swagger UI requires the files "swagger-ui.bundle.js", "swagger-ui.css", "favicon.ico"
+    - ReDoc requires the file "redoc.standalone.js", "favicon.ico"
+    """
+    {%- endif %}
 
     class Config(BaseSettings.Config):
         env_prefix = "API_DOCS_"

@@ -15,7 +15,7 @@ def _delete_resource(path):
 
 
 def delete_unneccessary_files():
-    if {{cookiecutter.advanced_docs}} is False:
+    if "{{cookiecutter.advanced_docs}}" == "no":
         _delete_resource("{{cookiecutter.project_slug}}/documentation.py")
 
 
