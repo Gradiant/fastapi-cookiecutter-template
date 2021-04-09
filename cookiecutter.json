@@ -2,5 +2,6 @@
   "app_name": "FastAPI Example",
   "directory_name": "{{ cookiecutter.app_name|lower|replace(' ', '-') }}",
   "project_slug": "{{ cookiecutter.directory_name|replace('-', '_') }}",
-  "advanced_docs": ["no", "yes"]
+  "advanced_docs": ["no", "yes"],
+  "advanced_responses": ["no", "yes"]
 }

@@ -18,7 +18,8 @@ This repository serves as a Cookiecutter template to create a new FastAPI projec
     - app_name: canonical name of the project (example: "FastAPI example")
     - directory_name: name of the directory where the template will be created (example: "fastapi-example"; the directory will be created within the current directory)
     - project_slug: name of the Python package that will hold the application (example: "fastapi_example")
-    - advanced_docs: if true, adds more options to customize the generation of documentation
+    - advanced_docs: if yes, adds more options to customize the generation of documentation
+    - advanced_responses: if yes, adds more features to the returned responses
 
 - chdir to where the template was created (inside "directory_name") and start the server with `python .`
 
@@ -50,6 +51,9 @@ The bundled settings are documented in the [sample.env]({{cookiecutter.directory
 The proposed logging system consists of a single logger (using [loguru](https://github.com/Delgan/loguru) as logging library) that should only be user for logging records triggered from request handling (this means anything that runs from a request handler - any function decorated to serve an endpoint).
 
 All the requests are passed through the [request middleware]({{cookiecutter.directory_name}}/{{cookiecutter.project_slug}}/middlewares.py), that will append a unique identifier to the log records of that request, using context variables (using [loguru contextualize](https://loguru.readthedocs.io/en/stable/api/logger.html#loguru._logger.Logger.contextualize)).
+
+If the template is used with advanced_responses=yes, the returned responses will embed the request id and elapsed request processing time (seconds) in headers, as "X-Request-ID" and "X-Process-Time" respectively.
+Having the request id as a client can be useful to search later on all the log records for a certain request.
 
 The logger behaviour supported by the template is to print out the log records with a certain format. Optionally, using the REQUEST_LOG_SERIALIZE setting, these records can be serialized and printed out as JSON objects, that could then be persisted, and even grouped by request using the request identifier that is part of each record "extra" data.
 

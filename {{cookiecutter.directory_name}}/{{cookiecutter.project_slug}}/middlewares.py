@@ -35,8 +35,9 @@ async def request_handler(request: Request, call_next):
 
         end_time = get_time(seconds_precision=False)
         time_elapsed = round(end_time - start_time, 5)
+        {%- if cookiecutter.advanced_responses == "yes" %}
+        response.headers["X-Request-ID"] = request_id
+        response.headers["X-Process-Time"] = str(time_elapsed)
+        {%- endif %}
         logger.bind(time_elapsed=time_elapsed, response_status=response.status_code).info("Request ended")
-
         return response
-
-        # TODO append elapsed time and request id to responses (with settings?)
