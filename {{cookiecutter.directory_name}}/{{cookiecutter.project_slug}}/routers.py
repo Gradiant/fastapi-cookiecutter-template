@@ -20,4 +20,5 @@ TAGS_METADATA = [
     }
 ]
 """Tags are used in generated documentation for grouping endpoints.
-In the metadata a description can be provided for each tag."""
+In the metadata a description can be provided for each tag.
+It is not mandatory to declare all tags in this array - only tags where the description is set."""

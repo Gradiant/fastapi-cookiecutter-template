@@ -1,10 +1,7 @@
 import os
-{%- if cookiecutter.advanced_docs|tojson %}
 from typing import Optional
-{% endif %}
 
 import pydantic
-
 
 ENV_FILE = os.getenv("ENV_FILE", ".env")
 

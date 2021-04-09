@@ -1,5 +1,3 @@
-"""The custom logger embedded is used for logging requests only."""
-
 import sys
 
 from loguru import logger
