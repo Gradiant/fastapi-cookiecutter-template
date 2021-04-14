@@ -12,7 +12,7 @@ This repository serves as a Cookiecutter template to create a new FastAPI projec
 - [Install cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html#install-cookiecutter)
 
 - Start a new project:
-  `cookiecutter ...`
+  `cookiecutter https://github.com/Gradiant/fastapi-cookiecutter-template.git`
   
   The following will be prompted:
     - app_name: canonical name of the project (example: "FastAPI example")
