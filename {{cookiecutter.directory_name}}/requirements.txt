@@ -1,0 +1,8 @@
+fastapi==0.63.0
+pydantic==1.8.1
+uvicorn==0.13.4
+loguru==0.5.3
+python-dotenv==0.17.0
+{% if cookiecutter.advanced_docs == "yes" -%}
+aiofiles==0.6.0
+{% endif -%}
