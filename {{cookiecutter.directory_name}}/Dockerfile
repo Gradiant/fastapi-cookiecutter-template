@@ -29,11 +29,11 @@ COPY --from=static /home/curl_user/static/* ./static/
 # Install requirements
 #  (copy isolated from project root, to avoid having to install everything again if something on the project sources changed, but not in requirements)
 COPY ./requirements.txt /tmp/requirements.txt
-RUN pip install --user -r /tmp/requirements.txt
+RUN pip install --user --no-cache-dir -r /tmp/requirements.txt
 
 # Copy project files
 COPY ./ ./app/
 WORKDIR /home/$USER/app
 
 HEALTHCHECK --interval=1m --timeout=10s --retries=3 --start-period=30s CMD python tools/scripts/healthcheck.py
-CMD ["python", "."]
+CMD ["python", "-u", "."]
