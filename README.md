@@ -81,4 +81,3 @@ The template tests can run without creating a template, by running the [tools/te
 - API Exceptions linked with models, to be shown in the auto-generated documentation as Responses
 - Include an example with configured routes, exceptions and models
 - Optionally run with Gunicorn
-- Docker(file) support
