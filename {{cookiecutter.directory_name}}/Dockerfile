@@ -24,7 +24,7 @@ WORKDIR /home/$USER
 # Copy static files
 ENV API_DOCS_STATIC_PATH="/home/$USER/static"
 RUN mkdir static
-COPY --from=static /home/curl_user/static/* ./static/
+COPY --from=static --chown=$USER /home/curl_user/static/* ./static/
 {% endif %}
 # Install requirements
 #  (copy isolated from project root, to avoid having to install everything again if something on the project sources changed, but not in requirements)
