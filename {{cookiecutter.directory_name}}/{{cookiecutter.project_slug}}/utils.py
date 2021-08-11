@@ -13,11 +13,3 @@ def get_time(seconds_precision=True):
 def get_uuid():
     """Return a UUID4 as string"""
     return str(uuid4())
-
-
-def snakecase_to_camelcase(string: str) -> str:
-    """Convert a snake_case string into camelCase"""
-    return ''.join(
-        word.capitalize() if i != 0 else word
-        for i, word in enumerate(string.split('_'))
-    )
